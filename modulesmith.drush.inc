@@ -9,6 +9,7 @@ define('DRUSH_MODULESMITH_SMART', 1);
 function modulesmith_drush_command() {
   $commands = array();
 
+  // forge
   $commands['modulesmith-forge'] = array(
     'callback' => 'drush_modulesmith_forge',
     'description' => 'Create a new module.',
@@ -24,11 +25,43 @@ function modulesmith_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_CONFIGURATION,
   );
 
+  // patch
+  $commands['modulesmith-patch'] = array(
+    'callback' => 'drush_modulesmith_patch',
+    'description' => 'Move a module to the patched directory.',
+    'aliases' => array('msp'),
+    'examples' => array(
+      'drush modulesmith-patch module_name' => 'Move the module to the patched directory.',
+    ),
+    'arguments' => array(
+      'module_name' => 'The module name to move.',
+      'path' => DRUSH_MODULESMITH_SMART,
+    ),
+    'required-arguments' => 1,
+    'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_CONFIGURATION,
+  );
+
   return $commands;
 }
 
 /**
- * Create a module
+ * Create a module.
+ *
+ * By default, the path of module created will be (in order of preference):
+ *
+ * - sites/all/modules/custom
+ * - sites/all/modules
+ *
+ * If an install profile was used, it will also include:
+ *
+ * - profiles/PROFILE/modules/custom
+ * - profiles/PROFILE/modules
+ *
+ * @param string $module_name
+ *   The name of the module to create
+ * @param mixed $path
+ *   The path to use in creation of the module. By default this is in "smart"
+ *   mode.
  */
 function drush_modulesmith_forge($module_name, $path = DRUSH_MODULESMITH_SMART) {
   if ($path == DRUSH_MODULESMITH_SMART) {
@@ -79,4 +112,19 @@ function drush_modulesmith_forge($module_name, $path = DRUSH_MODULESMITH_SMART) 
       $module
     );
   }
+}
+
+/**
+ * Move the module to the patched directory.
+ *
+ * @param string $module_name
+ *   The name of the module to create
+ * @param mixed $path
+ *   The path to use in creation of the module. By default this is in "smart"
+ *   mode.
+ */
+function drush_modulesmith_patch($module_name, $path = DRUSH_MODULESMITH_SMART) {
+  // find the module
+  $modules = module_list();
+  var_dump($modules);
 }
