@@ -3,7 +3,10 @@ drush_modulesmith
 
 Create simple modules with Drush.
 
-Usage: `drush modulesmith-forge modulename`
+Usage:
+
+    drush modulesmith-forge modulename
+    drush modulesmith-forge modulename sites/all/modules/custom
 
 By default, it will try to put it in the following paths:
 
