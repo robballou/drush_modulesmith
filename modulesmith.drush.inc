@@ -39,7 +39,7 @@ function drush_modulesmith_forge($module_name, $path = DRUSH_MODULESMITH_SMART) 
 
     $install_profile = variable_get('install_profile', FALSE);
     if ($install_profile) {
-      $path_preferences = array(
+      $path_preferences += array(
         DRUPAL_ROOT . '/profiles/' . $install_profile . '/modules/custom',
         DRUPAL_ROOT . '/profiles/' . $install_profile . '/modules',
       );
