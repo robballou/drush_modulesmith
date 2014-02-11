@@ -32,14 +32,14 @@ function drush_modulesmith_forge($module_name, $path = DRUSH_MODULESMITH_SMART) 
   if ($path == DRUSH_MODULESMITH_SMART) {
     $path_preferences = array(
       DRUPAL_ROOT . '/sites/all/modules/custom',
-      DRUPAL_ROOT . '/sites/all/modules/',
+      DRUPAL_ROOT . '/sites/all/modules',
     );
 
     $install_profile = variable_get('install_profile', FALSE);
     if ($install_profile) {
       $path_preferences = array(
         DRUPAL_ROOT . '/profiles/' . $install_profile . '/modules/custom',
-        DRUPAL_ROOT . '/profiles/' . $install_profile . '/modules/',
+        DRUPAL_ROOT . '/profiles/' . $install_profile . '/modules',
       );
     }
 
