@@ -3,6 +3,8 @@ define('DRUSH_MODULESMITH_SMART', 1);
 
 /**
  * Implements hook_drush_command().
+ *
+ * Register the modulesmith command(s)
  */
 function modulesmith_drush_command() {
   $commands = array();
@@ -60,7 +62,7 @@ function drush_modulesmith_forge($module_name, $path = DRUSH_MODULESMITH_SMART) 
 
   drush_log('Path: ' . $module_path, 'ok');
   if (drush_confirm('Create module ' . $module_name . '?')) {
-    mkdir($module_path);
+    mkdir($module_path, 0775, TRUE);
 
     $info = file_get_contents(__DIR__ . '/templates/info.tpl');
     $info = str_replace('$module_name', $module_name, $info);
