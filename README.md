@@ -6,7 +6,7 @@ Create simple modules with Drush.
 Usage:
 
     drush modulesmith-forge modulename
-    drush modulesmith-forge modulename sites/all/modules/custom
+    drush msf modulename sites/all/modules/custom
 
 By default, it will try to put it in the following paths:
 
@@ -16,6 +16,12 @@ By default, it will try to put it in the following paths:
     profiles/INSTALLPROFILE/modules
 
 ## Install
+
+Via drush:
+
+    drush dl drush_modulesmith
+
+Or manually:
 
     cd ~/.drush/
     git clone git@github.com:robballou/drush_modulesmith.git
