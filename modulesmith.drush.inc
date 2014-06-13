@@ -18,7 +18,9 @@ function modulesmith_drush_command() {
     ),
     'arguments' => array(
       'module_name' => 'The module name to create.',
-      'path' => DRUSH_MODULESMITH_SMART,
+      'path' => 'Path where module will be created. Defaults to
+      DRUPAL_ROOT . \'/sites/all/modules/custom\' if it exists, or
+      DRUPAL_ROOT . \'/sites/all/modules/\' if not.',
     ),
     'required-arguments' => 1,
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_CONFIGURATION,
