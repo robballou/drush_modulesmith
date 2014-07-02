@@ -28,4 +28,4 @@ Or manually:
 
 ## Why this command?
 
-You can [use module_builder](https://drupal.org/project/module_builder) to build modules. It's a great tool and fully featured. `module_builder` installs into your project though. And it does quite a lot (which is good ... unless you need something simple). This just adds a module skeleton for you and you can then add your code as needed.
+You can [use module_builder](https://drupal.org/project/module_builder) to build modules. It's a great tool and fully featured. `module_builder` normally installs into your project though (but it doesn't have to). And it does quite a lot (which is good ... unless you need something simple). This just adds a module skeleton for you and you can then add your code as needed.
